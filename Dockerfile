@@ -7,8 +7,12 @@ RUN mkdir /app && \
     cp -R build/install/rocketchat-jira-trigger/* /app && \
     cd / && \
     rm -rf /root/.gradle && \
-    rm -rf /src
+    rm -rf /src && \
+    mkdir /config && \
+    :> /config/config.toml && \
+    cd /app && \
+    ln -s /config/config.toml .
 WORKDIR /app
-VOLUME /app/config.toml
+VOLUME /config
 EXPOSE 4567
 CMD ["bin/rocketchat-jira-trigger", "config.toml"]
