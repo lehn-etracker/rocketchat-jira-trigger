@@ -108,7 +108,7 @@ public class AttachmentCreatorTest {
 
 		ToRocketChatAttachment attachment = converter.create(mockIssue, NORMAL);
 
-		assertThat(attachment.getText()).isEqualTo("<http://my.jira/browse/ISS-1234|Français>");
+		assertThat(attachment.getText()).isEqualTo("[Français](http://my.jira/browse/ISS-1234)");
 	}
 
 	@Test(expected = IllegalArgumentException.class)

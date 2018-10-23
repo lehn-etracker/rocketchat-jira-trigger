@@ -62,7 +62,7 @@ public class AttachmentCreator {
 		String summary = Optional.ofNullable(issue.getSummary()).orElse("");
 		String unescaped = unescapeHtml(summary);
 		String stripped = stripReservedLinkCharacters(unescaped);
-		return String.format("<%s|%s>", parseTitleLink(issue), stripped);
+		return String.format("[%s](%s)", stripped, parseTitleLink(issue));
 	}
 
 	private static String stripReservedLinkCharacters(String text) {
